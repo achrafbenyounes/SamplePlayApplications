@@ -8,6 +8,23 @@ import play.data.validation.Constraints.*;
 import views.html.*;
 
 public class Application extends Controller {
+	
+	public static class Eat {
+		public String choosenMenu;
+		public Integer quantiy;
+		public Double price;
+		public Double totalCmd;	
+	}
+	
+	/**
+	 * 
+	 */
+	
+	public static Result eatSomething() {
+        return ok(
+        		eat.render(form(Eat.class))
+            );
+	}
     
     /**
      * Describes the hello form.
