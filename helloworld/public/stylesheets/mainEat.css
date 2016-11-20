@@ -1,0 +1,76 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    font-family: Helvetica, Arial;
+    color: #3A4244;
+}
+
+header {
+    padding: 10px 30px;
+    background: #CAE7EC;
+    font-size: 24px;
+}
+
+header a {
+    color: #1A1E20;
+    text-decoration: none;
+}
+
+section {
+    padding: 10px 30px;
+}
+
+
+#eatform dd {
+    display: inline-block;
+}
+
+#eatform dd.info {
+    display: none;
+}
+
+#eatform dd.error {
+    margin-left: 10px;
+    font-size: 12px;
+    color: #c00;
+}
+
+#eatform label {
+    font-size: 14px;
+}
+
+#eatform dl {
+    background: #FAFAFA;
+    padding: 10px;
+}
+
+#eatform dl.error {
+    background: #FBDDE6;
+}
+
+#eatform dt {
+    display: inline-block;
+    width: 160px;
+}
+
+.buttons {
+    background: #536565;
+    padding: 10px;
+    margin-top: 30px;
+}
+
+.buttons input, .buttons a {
+    border: 1px solid #2F3A3A;
+    background: #fff;
+    font-size: 12px;
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #000;
+}
+
+ul {
+    padding-left: 20px;
+}
+

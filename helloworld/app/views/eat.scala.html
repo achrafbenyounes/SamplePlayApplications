@@ -2,11 +2,11 @@
 
 @import helper._
 
-@main(title = "The form food application") {
+@mainEat(title = "The 'food' application") {
     
     <h1>Time to choose your menu:</h1>
     
-    @form(action = routes.Application.sayHello, args = 'idx -> "eatForm") {
+    @form(action = routes.Application.returnFood, args = 'id -> "eatform") {
     
        @select(
             field = eatForm("choosenMenu"), 
@@ -20,13 +20,13 @@
         )
         
         @inputText(
-            field = eatForm("quantiy"),
+            field = eatForm("quantity"),
             args = '_label -> "Quantity", 'size -> 3
         )
         
         @inputText(
             field = eatForm("price"),
-            args = '_label -> "Price", 'size -> 3
+            args = '_label -> "Price", 'size -> 3, 'placeholder -> 10
         )
         
         @inputText(

@@ -11,8 +11,8 @@ public class Application extends Controller {
 	
 	public static class Eat {
 		public String choosenMenu;
-		public Integer quantiy;
-		public Double price;
+		@Required public Integer quantity;
+		@Required @Min(1) @Max(50) public Integer price;
 		public Double totalCmd;	
 	}
 	
@@ -59,6 +59,10 @@ public class Application extends Controller {
                 hello.render(data.name, data.repeat, data.color)
             );
         }
+    }
+    
+    public static Result returnFood() {
+        return ok("what is food");     
     }
   
 }
