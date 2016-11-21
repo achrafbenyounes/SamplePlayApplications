@@ -1,0 +1,15 @@
+@(choosenMenu: String, quantity: Int, price: Double, totalCmd: Double)
+
+@main("Here is your command:") {
+
+
+    
+    <ul>
+    	<li>Your menu is @choosenMenu !, total price: @price * @quantity</li>
+    </ul>
+    
+    <p class="buttons">
+        <a href="@routes.Application.eatSomething">Back to the form</a>
+    </p>
+    
+}

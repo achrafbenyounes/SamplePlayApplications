@@ -6,13 +6,15 @@ import static play.data.Form.*;
 import play.data.validation.Constraints.*;
 
 import views.html.*;
+import views.html.foodCommand;
+
 
 public class Application extends Controller {
 	
 	public static class Eat {
 		public String choosenMenu;
 		@Required public Integer quantity;
-		@Required @Min(1) @Max(50) public Integer price;
+		@Required @Min(1) @Max(50) public Double price;
 		public Double totalCmd;	
 	}
 	
@@ -21,9 +23,7 @@ public class Application extends Controller {
 	 */
 	
 	public static Result eatSomething() {
-        return ok(
-        		eat.render(form(Eat.class))
-            );
+        return ok(eat.render(form(Eat.class)));      
 	}
     
     /**
@@ -62,7 +62,15 @@ public class Application extends Controller {
     }
     
     public static Result returnFood() {
-        return ok("what is food");     
-    }
+    	Form<Eat> eatForm = form(Eat.class).bindFromRequest();
+    	if (eatForm.hasErrors()) {
+    		return badRequest(eat.render(eatForm));
+    	} else {
+    		Eat data = eatForm.get();
+    		//return ok("You have choosen " + data.choosenMenu + " " + " Price " + data.price);
+    		//return ok(eat.render(eatForm)); 
+    		return ok(foodCommand.render(data.choosenMenu, data.quantity, data.price, data.totalCmd));
+        }
   
+    }
 }
