@@ -11,12 +11,12 @@
        @select(
             field = eatForm("choosenMenu"), 
             options = options(
-                "" -> "Kebab",
+                "kebab" -> "Kebab",
                 "pizza" -> "Pizza 4 fromages",
                 "assiette adana" -> "Assiette Adana",
                 "nouille crevette" -> "Nouille crevette"
             ),
-            args = '_label -> "Choose what you want to eat"
+            args = '_label -> "Choose your menu"
         )
         
         @inputText(
@@ -27,11 +27,6 @@
         @inputText(
             field = eatForm("price"),
             args = '_label -> "Price", 'size -> 3, 'placeholder -> 10
-        )
-        
-        @inputText(
-            field = eatForm("TotalCmd"),
-            args = '_label -> "Sum of your command", 'size -> 5
         )
         
         <p class="buttons">

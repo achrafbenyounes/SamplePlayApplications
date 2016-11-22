@@ -1,11 +1,11 @@
-@(choosenMenu: String, quantity: Int, price: Double, totalCmd: Double)
+@(choosenMenu: String, quantity: Int, price: Double, totalCmd: String)
 
 @main("Here is your command:") {
 
 
     
     <ul>
-    	<li>Your menu is @choosenMenu !, total price: @price * @quantity</li>
+    	<li>Your menu is @choosenMenu !, total price: @totalCmd $ </li>
     </ul>
     
     <p class="buttons">

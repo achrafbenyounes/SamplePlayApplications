@@ -3,6 +3,10 @@ package controllers;
 import play.mvc.*;
 import play.data.*;
 import static play.data.Form.*;
+
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
 import play.data.validation.Constraints.*;
 
 import views.html.*;
@@ -14,8 +18,7 @@ public class Application extends Controller {
 	public static class Eat {
 		public String choosenMenu;
 		@Required public Integer quantity;
-		@Required @Min(1) @Max(50) public Double price;
-		public Double totalCmd;	
+		@Required @Min(1) @Max(50) public Double price;	
 	}
 	
 	/**
@@ -66,10 +69,10 @@ public class Application extends Controller {
     	if (eatForm.hasErrors()) {
     		return badRequest(eat.render(eatForm));
     	} else {
-    		Eat data = eatForm.get();
-    		//return ok("You have choosen " + data.choosenMenu + " " + " Price " + data.price);
-    		//return ok(eat.render(eatForm)); 
-    		return ok(foodCommand.render(data.choosenMenu, data.quantity, data.price, data.totalCmd));
+    		NumberFormat formatter = new DecimalFormat("#0.00"); 
+    		Eat data = eatForm.get(); 
+    		String totalCmd = formatter.format(Double.valueOf(data.price * data.quantity));
+    		return ok(foodCommand.render(data.choosenMenu, data.quantity, data.price, totalCmd));
         }
   
     }
